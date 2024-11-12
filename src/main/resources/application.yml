@@ -1,0 +1,18 @@
+server:
+  port: 8088
+spring:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 3306
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatisdb?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B7
+    username: root
+    password: 123456Aa
+mybatis:
+  type-aliases-package: com.hand.train.po
+  mapper-locations: classpath:mapper/*Mapper*.xml
+logging:
+  level:
+    com.hand.train: debug
