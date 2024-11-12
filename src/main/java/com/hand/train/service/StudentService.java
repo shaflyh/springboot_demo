@@ -15,16 +15,19 @@ public class StudentService {
         this.mapper = studentMapper;
     }
 
-    public void addStudent(Student student) {
+    public String addStudent(Student student) {
         mapper.insertStudent(student);
+        return "Student added successfully!";
     }
 
-    public void updateStudent(Student student) {
+    public String updateStudent(Student student) {
         mapper.updateStudent(student);
+        return "Student id " + student.getStuId() + " updated successfully!";
     }
 
-    public void deleteStudent(Long stuId) {
+    public String deleteStudent(Long stuId) {
         mapper.deleteStudent(stuId);
+        return "Student id " + stuId + " deleted successfully!";
     }
 
     public Student getStudentById(Long stuId) {

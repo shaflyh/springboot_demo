@@ -4,6 +4,7 @@ import com.hand.train.po.Student;
 import com.hand.train.service.StudentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,21 +22,21 @@ public class StudentController {
 
     @ApiOperation(value = "Add a new student")
     @PostMapping
-    public void addStudent(@RequestBody Student student) {
-        service.addStudent(student);
+    public ResponseEntity<String> addStudent(@RequestBody Student student) {
+        return ResponseEntity.ok(service.addStudent(student));
     }
 
     @ApiOperation(value = "Update an existing student")
     @PutMapping("/{id}")
-    public void updateStudent(@PathVariable Long id, @RequestBody Student student) {
+    public ResponseEntity<String> updateStudent(@PathVariable Long id, @RequestBody Student student) {
         student.setStuId(id);
-        service.updateStudent(student);
+        return ResponseEntity.ok(service.updateStudent(student));
     }
 
     @ApiOperation(value = "Delete a student by ID")
     @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable Long id) {
-        service.deleteStudent(id);
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
+        return ResponseEntity.ok(service.deleteStudent(id));
     }
 
     @ApiOperation(value = "Get a student by ID")
